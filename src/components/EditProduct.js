@@ -5,6 +5,10 @@ import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from './css/Page.module.css'
+
+import Inputs from './input/Inputs'
 const mapStateToProps = (state) => {
   return {
     data: state.dataProduct,
@@ -14,79 +18,60 @@ const mapStateToProps = (state) => {
 function EditProduct({ data }) {
   const [editData, setEditData] = useState(data.productData[useParams().id])
   return (
-    <div className='container'>
-      <div className='d-flex-column justify-content'>
-        <div className='row'>
-          <NavLink to='/'>
+    <>
+      <header>
+        <div className='container'>
+          <div className='row'>
             <div className='col-2'>
-              <h2>&lt;--</h2>
+              <NavLink to='/'>
+                <FontAwesomeIcon icon='fa-solid fa-arrow-left-long' size='xl' />
+              </NavLink>
             </div>
-          </NavLink>
-          <div className='col-10 text-center'>
-            <h2>Edit Product</h2>
+            <div className='col-8 text-center fw-bold'>Edit Product</div>
+            <div className='col-2'>{/*  */}</div>
           </div>
         </div>
-        <div className='text-center mt-5'>
-          <svg
-            className='bd-placeholder-img rounded-circle'
-            width='140'
-            height='140'
-            xmlns='http://www.w3.org/2000/svg'
-            role='img'
-            aria-label='Placeholder: 140x140'
-            preserveAspectRatio='xMidYMid slice'
-            focusable='false'
-          >
-            <title>Placeholder</title>
-            <rect width='100%' height='100%' fill='#777' />
-            <text x='50%' y='50%' fill='#777' dy='.3em'>
-              140x140
-            </text>
-          </svg>
+      </header>
+      <section>
+        <div className='container'>
+          <div className='text-center mt-5'>
+            {/* <div className={styles.avatar}>
+              <img alt='' src={props.data.image} />
+            </div> */}
+            <svg
+              className='bd-placeholder-img rounded-circle'
+              width='140'
+              height='140'
+              xmlns='http://www.w3.org/2000/svg'
+              role='img'
+              aria-label='Placeholder: 140x140'
+              preserveAspectRatio='xMidYMid slice'
+              focusable='false'
+            >
+              <title>Placeholder</title>
+              <rect width='100%' height='100%' fill='#777' />
+              <text x='50%' y='50%' fill='#777' dy='.3em'>
+                140x140
+              </text>
+            </svg>
 
-          <h2 className='mt-3'>Food Details</h2>
-          <div className='mb-3'>
-            <label className='form-label'>Name</label>
-            <input
-              type='text'
-              defaultValue={editData.name}
-              className='form-control'
-            />
+            <h2 className='mt-3'>Food Details</h2>
           </div>
-          <div className='mb-3'>
-            <label className='form-label'>Category</label>
-            <input
-              type='text'
-              defaultValue={editData.cat}
-              className='form-control'
-            />
-          </div>
-          <div className='mb-3'>
-            <label className='form-label'>Description</label>
-            <input
-              type='text'
-              defaultValue={editData.des}
-              className='form-control'
-            />
-          </div>
-          <div className='mb-3'>
-            <label className='form-label'>Date</label>
-            <input
-              type='date'
-              defaultValue={editData.exp}
-              className='form-control'
-            />
-          </div>
-          <div className='mb-3'>
-            <label className='form-label'>Time</label>
-            <input type='time' className='form-control' />
+          <div className='mx-3 mb-3'>
+            <form>
+              <Inputs type='text' topic='Name' value={editData.name} />
+              <Inputs type='text' topic='Category' value={editData.cat} />
+              <Inputs type='text' topic='Description' value={editData.des} />
+              <Inputs type='date' topic='Date' value={editData.exp} />
+              {/* <Inputs type='time' topic='Time' value={editData.time} /> */}
+              <Button className='w-100' color='warning text-white'>
+                Update
+              </Button>
+            </form>
           </div>
         </div>
-        <Button className='w-100' color='warning text-white'>
-          Update
-        </Button>
-      </div>
-    </div>
+      </section>
+    </>
   )
 }
 

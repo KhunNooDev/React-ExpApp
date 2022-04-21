@@ -23,7 +23,7 @@ export default function NavBottomBar() {
         <div className={`${styles.tab} ${styles.tabLeft}`}>
           <div className='row'>
             <div className={`${'col-6'} ${styles.menuNav}`}>
-              <NavLink to='/category' className={styles.barLink}>
+              <NavLink to='/' className={styles.barLink}>
                 <div className={styles.iconsBar}>
                   <FontAwesomeIcon icon='fa-solid fa-house' />
                 </div>
@@ -31,7 +31,7 @@ export default function NavBottomBar() {
               </NavLink>
             </div>
             <div className={`${'col-6'} ${styles.menuNav}`}>
-              <NavLink to='/category' className={styles.barLink}>
+              <NavLink to='/fridge' className={styles.barLink}>
                 <div className={styles.iconsBar}>
                   <FontAwesomeIcon icon='fa-solid fa-snowflake' />
                 </div>

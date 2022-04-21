@@ -6,6 +6,7 @@
 
 .bottomAppbar {
   /* width: 100vw; */
+  background-color: white;
   height: 70px;
   position: fixed;
   bottom: 0;
